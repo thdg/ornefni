@@ -15,17 +15,23 @@ Hægt er búa til nöfn í nokkrum mismunandi flokkum:
 
 ### **URL:**
 `GET  /:flokkur`
+
 `GET /:flokkur/:n`
+
 `GET /:flokkur/:n/:forskeyti`
 
 ### **URL breytur:**
 `flokkur=[farm, land, water, town, see, ice, kk, kvk]`: Flokkur til að búa til nöfn úr
+
 `n=[heiltala]`: Fjöldi nafna til að búa til
+
 `forskeyti=[strengur]`: Búa til nöfn sem byrja á <forskeyti>
 
 ### **Dæmi:**
 **URL:** `/ice/`
+
 **Code:** `200`
+
 **Content:** `{"names":["Sandfellsjökull",
 "Kvíslajökull eystri-Brækur",
 "Jökull eystri",
