@@ -8,8 +8,9 @@ Hægt er búa til nöfn í nokkrum mismunandi flokkum:
 - Þéttbýli
 - Sjávarörnefni
 - Jökla- og snævarörnefni
-- Karlkynsnöfn (ekki tilbúið)
-- Kvennmansnöfn (ekki tilbúið)
+- Drengjanöfn
+- Stúlkunöfn
+- Millinöfn
 
 ## **Aðgerðir**
 
@@ -21,14 +22,14 @@ Hægt er búa til nöfn í nokkrum mismunandi flokkum:
 `GET /:flokkur/:n/:forskeyti`
 
 ### **URL breytur:**
-`flokkur=[farm, land, water, town, see, ice, kk, kvk]`: Flokkur til að búa til nöfn úr
+`flokkur=[sveit, land, vatn, borg, sjor, jokull, kk, kvk, milli]`: Flokkur til að búa til nöfn úr
 
-`n=[heiltala]`: Fjöldi nafna til að búa til
+`n=[heiltala]`: Fjöldi nafna til að búa til, 0 < n <= 50
 
-`forskeyti=[strengur]`: Búa til nöfn sem byrja á <forskeyti>
+`forskeyti=[strengur]`: Búa til nöfn sem byrja á forskeyti
 
 ### **Dæmi:**
-**URL:** `/ice/`
+**URL:** `/jokull/`
 
 **Code:** `200`
 

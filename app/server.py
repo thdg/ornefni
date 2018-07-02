@@ -5,14 +5,15 @@ from markovchain import MarkovChain
 app = Flask(__name__)
 
 name_files = [
-    ("see", "sjavarornefni.txt"),
-    ("farm", "sveit.txt"),
-    ("town", "thettbyli.txt"),
-    ("water", "vatnaornefni.txt"),
+    ("sjor", "sjavarornefni.txt"),
+    ("sveit", "sveit.txt"),
+    ("borg", "thettbyli.txt"),
+    ("vatn", "vatnaornefni.txt"),
     ("land", "landornefni.txt"),
-    ("ice", "joklaornefni.txt"),
-    ("kvk", "kvennmannsnofn.txt"),
-    ("kk", "karlmannsnofn.txt"),
+    ("jokull", "joklaornefni.txt"),
+    ("kvk", "kvknofn.txt"),
+    ("kk", "kknofn.txt"),
+    ("milli", "millinofn.txt")
 ]
 
 CHAINS = {}
@@ -28,7 +29,7 @@ def chains(chain, n, seed):
     if chain not in CHAINS:
         return abort(404)
 
-    if n > 50:
+    if n < 0 or 50 < n:
         return abort(422)
 
     names = []
@@ -38,8 +39,3 @@ def chains(chain, n, seed):
 
     response = {"names": names}
     return jsonify(response)
-
-
-@app.route('/docs/')
-def docs():
-    return "docs"
