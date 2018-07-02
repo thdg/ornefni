@@ -28,6 +28,10 @@ Hægt er búa til nöfn í nokkrum mismunandi flokkum:
 
 `forskeyti=[strengur]`: Búa til nöfn sem byrja á forskeyti
 
+### **GET breytur**
+`ekkitil=bool`: Sía út nöfn sem eru til
+
+
 ### **Dæmi:**
 **URL:** `/jokull/`
 
