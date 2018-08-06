@@ -35,11 +35,12 @@ class MarkovChain(object):
 				self.states[memory][token] = 0
 
 			self.states[memory][token] += 1
-			
-	def fit(self, fname):
+
+	def fit(self, fname, reversed=False):
+		direction = -1 if reversed else 1
 		with open(fname) as f:
 			for line in f.readlines():
-				tokens = self.tokenize(line.strip())
+				tokens = self.tokenize(line.strip()[::direction])
 				self.accumulate(tokens)
 
 	def weighted_random_step(self, state):

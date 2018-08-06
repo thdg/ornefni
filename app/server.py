@@ -22,6 +22,9 @@ for name, fname, order in name_files:
     mc = MarkovChain(order=order, analyzer="char")
     mc.fit(fname)
     CHAINS[name] = mc
+    mc = MarkovChain(order=order, analyzer="char")
+    mc.fit(fname, reversed=True)
+    CHAINS[name + "_r"] = mc
 
 
 NAMES = {}
@@ -36,6 +39,12 @@ def is_bool(value):
     return value in ["True", "true", "1", 1, True]
 
 
+def clean_seed(value, reversed):
+    if reversed:
+        return value[::-1].lower()
+    else:
+        return value.capitalize()
+
 @app.route('/<chain>/', defaults={"n": 10, "seed": ""})
 @app.route('/<chain>/<int:n>/', defaults={"seed": ""})
 @app.route('/<chain>/<int:n>/<seed>/')
@@ -47,19 +56,24 @@ def chains(chain, n, seed):
         return abort(400)
 
     filter_known = is_bool(request.args.get("ekkitil"))
+    reversed = is_bool(request.args.get("aftur"))
 
     names = set()
-    mc = CHAINS[chain]
+    chain_name = chain + ("_r" if reversed else "")
+    mc = CHAINS[chain_name]
 
     max_tries = 100
+    direction = -1 if reversed else 1
     for _ in range(max_tries):
         try:
-            name = "".join(mc.generate(seed=seed.capitalize())[1:-1])
+            seed = clean_seed(seed, reversed)
+            name = "".join(mc.generate(seed=seed)[1:-1])
         except:
-            return abort(400)
+            #return abort(400)
+            pass
 
         if (filter_known and name not in NAMES[chain]) or not filter_known:
-            names.add(name)
+            names.add(name[::direction])
 
         if len(names) > n:
             break
