@@ -64,9 +64,10 @@ def chains(chain, n, seed):
 
     max_tries = 100
     direction = -1 if reversed else 1
+    seed = clean_seed(seed, reversed)
+
     for _ in range(max_tries):
         try:
-            seed = clean_seed(seed, reversed)
             name = "".join(mc.generate(seed=seed)[1:-1])
         except:
             #return abort(400)
