@@ -70,8 +70,7 @@ def chains(chain, n, seed):
         try:
             name = "".join(mc.generate(seed=seed)[1:-1])
         except:
-            #return abort(400)
-            pass
+            continue
 
         if (filter_known and name not in NAMES[chain]) or not filter_known:
             names.add(name[::direction])
