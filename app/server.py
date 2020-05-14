@@ -14,6 +14,8 @@ name_files = [
     ("kvk", "data/ukvknofn.txt", 3),
     ("kk", "data/ukknofn.txt", 3),
     ("milli", "data/umillinofn.txt", 3)
+    ("gata", "data/ugotunofn.txt", 4)
+    ("hus", "data/uhusanofn.txt", 3)
 ]
 
 
