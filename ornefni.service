@@ -1,0 +1,13 @@
+[Unit]
+Description=Ornefni API
+
+[Service]
+
+WorkingDirectory=/home/services/ornefni
+ExecStart=/home/services/ornefni/run-prod.sh
+
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+

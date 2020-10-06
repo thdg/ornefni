@@ -1,2 +1,3 @@
+#!/bin/bash
 FLASK_APP=app.server
-pipenv run gunicorn -w 2 app.server:app
+env/bin/gunicorn -w 2 app.server:app

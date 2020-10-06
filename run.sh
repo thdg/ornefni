@@ -1,2 +1,2 @@
 export FLASK_APP=app.server
-pipenv run flask run
+env/bin/python3 -m flask run
